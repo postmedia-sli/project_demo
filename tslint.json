@@ -1,0 +1,32 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "rules": {
+        "await-promise": true,
+        "ban-comma-operator": true,
+        "file-name-casing": [true, "kebab-case"],
+        "member-ordering": [true, {
+            "order": "fields-first"
+        }],
+        "no-import-side-effect": true,
+        "no-inferrable-types": true,
+        "no-magic-numbers": true,
+        "no-null-keyword": true,
+        "no-parameter-reassignment": true,
+        "only-arrow-functions": true,
+        "promise-function-async": true,
+        "quotemark": {
+            "options": ["single", "avoid-escape"]
+        },
+        "semicolon": {
+            "options": "never"
+        },
+        "trailing-comma": {
+            "options": "never"
+        },
+        "typedef": true,
+        "whitespace": [true, "check-module"]
+    }
+}
