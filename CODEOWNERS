@@ -1,0 +1,5 @@
+# These owners will be the default owners for everything in the repo.
+* @radzhome @vgroux @gregov @andre-the-giant @fraserreed @TSivaID @brandonhill
+
+# Codeowners for Jenkinsfile
+Jenkinsfile @gregov @pEdler @npdbharris
