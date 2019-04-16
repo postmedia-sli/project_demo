@@ -14,8 +14,13 @@ from invoke import task, run
 
 WORK_DIR = './tmp'
 GIT_CREDS = os.getenv('GIT_CREDS', 'nouser:nopass')
-GIT_ORG = "Postmedia-Digital"
-GIT_REPO = "postmedia-frontend-modules"
+#GIT_ORG = "Postmedia-Digital"
+#GIT_REPO = "postmedia-frontend-modules"
+
+GIT_ORG = "postmedia-sli"
+GIT_REPO = "project_demo"
+
+
 POSTMEDIA_REPO = 'github.com/{}/{}.git'.format(GIT_ORG, GIT_REPO)
 
 SNAPSHOT_AWS_S3_BUCKET_NAME = "pmd-prod-frontend-modules"
@@ -23,10 +28,10 @@ RELEASE_AWS_S3_BUCKET_NAME = "pmd-prod-frontend-modules"
 S3_BUCKET_STAGE = 'postmediadigital-stage-artifacts/postmedia-frontend-modules'
 S3_BUCKET_DEV = 'pm-frontend-modules-snapshot/postmedia-frontend-modules'
 
-INFRA_REPO = '{}/postmedia-infrastructure'.format(GIT_ORG)
-PHPCS_SEVERITY_LEVEL = 3
+#INFRA_REPO = '{}/postmedia-infrastructure'.format(GIT_ORG)
+#PHPCS_SEVERITY_LEVEL = 3
 
-GITHUB_RAW_URL = 'raw.githubusercontent.com/'
+#GITHUB_RAW_URL = 'raw.githubusercontent.com/'
 
 class GitReleases():
     """ class to query releases in a github repository with functions to get all,
