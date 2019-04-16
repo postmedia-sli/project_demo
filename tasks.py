@@ -199,8 +199,8 @@ def build(ctx):
             author = os.environ.get('GIT_AUTHOR')
             notes = release_notes(version, author, git_ref_target, git_ref_source, build_type)
             tarball = package(notes, version)
-            print "No upload to S3"
-            //upload(tarball, S3_BUCKET_STAGE)
+            print("No upload to S3")
+            #upload(tarball, S3_BUCKET_STAGE)
     else:
         author = input('please enter your name for the release notes: ')
 
@@ -230,8 +230,8 @@ def build(ctx):
             os.system('rm -rf {}'.format(WORK_DIR))
         os.mkdir(WORK_DIR)
         tarball = package(notes, version)
-        print "No upload to S3"
-        //upload(tarball, S3_BUCKET_DEV)
+        print ("No upload to S3")
+        #upload(tarball, S3_BUCKET_DEV)
 
 
 @task
