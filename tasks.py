@@ -172,11 +172,12 @@ def build(ctx):
             run('git checkout {}'.format(git_ref_target))
 
             
-            tar_name = "Front"
+            tar_name = "Frontend"
             #'wordpress-{}-en_CA.tar.gz'.format(WORDPRESS_VERSION)
-            tar_file = open(tar_name, 'wb')
-            tar_file.write(wp_tar.content)
-            tar_file.close()
+            #tar_file = open(tar_name, 'wb')
+            #tar_file.write(wp_tar.content)
+            #tar_file.close()
+
             run('tar -xzf {}'.format(tar_name))
             
             # Download the postmedia source-code and patches/config
