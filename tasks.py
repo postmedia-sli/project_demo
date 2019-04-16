@@ -19,7 +19,7 @@ GIT_CREDS = os.getenv('GIT_CREDS', 'nouser:nopass')
 
 GIT_ORG = "postmedia-sli"
 GIT_REPO = "project_demo"
-
+DOC_ROOT = './frontend'
 
 POSTMEDIA_REPO = 'github.com/{}/{}.git'.format(GIT_ORG, GIT_REPO)
 
@@ -30,7 +30,6 @@ S3_BUCKET_DEV = 'pm-frontend-modules-snapshot/postmedia-frontend-modules'
 
 #INFRA_REPO = '{}/postmedia-infrastructure'.format(GIT_ORG)
 #PHPCS_SEVERITY_LEVEL = 3
-
 #GITHUB_RAW_URL = 'raw.githubusercontent.com/'
 
 class GitReleases():
@@ -173,7 +172,7 @@ def build(ctx):
             run('git checkout {}'.format(git_ref_target))
 
             
-            tar_name = "???"
+            tar_name = "Front"
             #'wordpress-{}-en_CA.tar.gz'.format(WORDPRESS_VERSION)
             tar_file = open(tar_name, 'wb')
             tar_file.write(wp_tar.content)
@@ -316,6 +315,18 @@ def release_notes(version, author, git_ref_target, git_ref_source, build_type):
         'changelog': changelog.stdout
     }
     return notes
+
+def package(notes, version):
+    """ packages all the required code into a
+    tarball to create a fully functional copy of install """
+    print('creating tarball')
+    archive_name = '{}.tgz'.format(version.replace('.', '-'))
+    run('tar --exclude=".git"'
+        ' --exclude="{}/wp-content/themes/tmp"'
+        ' --exclude="{}/wp-content/uploads" -zcf ../tmp/{} *'
+        .format(DOC_ROOT, DOC_ROOT, archive_name))
+    os.chdir(previous_dir)
+    return archive_name
 
 def upload(filename, bucket):
     """ pushes the tarball created in the package function to S3 """
