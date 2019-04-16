@@ -178,10 +178,10 @@ def build(ctx):
             #tar_file.write(wp_tar.content)
             #tar_file.close()
 
-            run('tar -xzf {}'.format(tar_name))
+            #run('tar -xzf {}'.format(tar_name))
             
             # Download the postmedia source-code and patches/config
-            clone(git_ref_target, git_ref_source)
+            #clone(git_ref_target, git_ref_source)
 
             # merge (if applicable) and create the release
             if git_ref_source:
