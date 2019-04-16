@@ -13,7 +13,6 @@ from svn import remote # this really is used despite pylint saying it's not
 from invoke import task, run
 
 WORK_DIR = './tmp'
-WORDPRESS_VERSION = '5.0.2'
 GIT_CREDS = os.getenv('GIT_CREDS', 'nouser:nopass')
 GIT_ORG = "Postmedia-Digital"
 GIT_REPO = "postmedia-frontend-modules"
@@ -28,9 +27,6 @@ INFRA_REPO = '{}/postmedia-infrastructure'.format(GIT_ORG)
 PHPCS_SEVERITY_LEVEL = 3
 
 GITHUB_RAW_URL = 'raw.githubusercontent.com/'
-
-DOC_ROOT = './wordpress'
-CLONE_DIR = './wordpress/wp-content'
 
 class GitReleases():
     """ class to query releases in a github repository with functions to get all,
